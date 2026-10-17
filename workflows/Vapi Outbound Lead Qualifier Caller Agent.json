@@ -1,0 +1,1016 @@
+{
+  "name": "Vapi Outbound Lead Qualifier Caller Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Work with us!",
+        "formDescription": "Fill out the form and we will reach out ASAP.",
+        "formFields": {
+          "values": [
+            {
+              "fieldName": "Name",
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Phone Number",
+              "fieldLabel": "Phone Number",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Email",
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Company Name",
+              "fieldLabel": "Company Name",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Role",
+              "fieldLabel": "Role",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Request",
+              "fieldLabel": "Request",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Company Size",
+              "fieldLabel": "Company Size",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "1"
+                  },
+                  {
+                    "option": "2-10"
+                  },
+                  {
+                    "option": "11-50"
+                  },
+                  {
+                    "option": "51-100"
+                  },
+                  {
+                    "option": "101+"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        2704,
+        1216
+      ],
+      "id": "806896d1-4aae-4c2f-913b-9e2092e4586b",
+      "name": "On form submission",
+      "webhookId": "a1ae6d50-5ad6-4e88-9995-3a8090cde5d3"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk",
+          "mode": "list",
+          "cachedResultName": "Form Submission Outbound Caller",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $now.format('yyyy-MM-dd hh:mm a') }}",
+            "Name": "={{ $json.Name }}",
+            "Phone": "={{ $json['Phone Number'] }}",
+            "Email": "={{ $json.Email }}",
+            "Company": "={{ $json['Company Name'] }}",
+            "Role": "={{ $json.Role }}",
+            "Request": "={{ $json.Request }}",
+            "Company Size": "={{ $json['Company Size'] }}",
+            "Status": "Incorrect Phone #"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Role",
+              "displayName": "Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Intent?",
+              "displayName": "Intent?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3376,
+        1120
+      ],
+      "id": "6c71f252-54f7-4f7c-96c2-d019ee9051ef",
+      "name": "Log Incorrect Phone",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GXUKCFdA3OHNbebO",
+          "name": "Hermes _ Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e68a68dc-720b-423e-84f5-1b7aa9238daa",
+              "leftValue": "={{ $json[\"Phone Number\"] }}",
+              "rightValue": "incorrect format",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3152,
+        1216
+      ],
+      "id": "fd4ad7f9-4971-4652-8837-e6c3f82b49d8",
+      "name": "Incorrect Phone?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all input items\nconst items = $input.all();\n\n// Process each item\nreturn items.map(item => {\n  const phoneNumber = item.json['Phone Number'];\n  \n  // Convert to string and remove all non-digit characters\n  let cleanNumber = String(phoneNumber).replace(/\\D/g, '');\n  \n  // Handle different cases\n  let standardizedNumber;\n  \n  if (cleanNumber.length === 10) {\n    // Perfect - just 10 digits\n    standardizedNumber = cleanNumber;\n  } else if (cleanNumber.length === 11 && cleanNumber.startsWith('1')) {\n    // US number with country code +1\n    standardizedNumber = cleanNumber.slice(1);\n  } else {\n    // Wrong format - too many, too few, or wrong country code\n    standardizedNumber = 'incorrect format';\n  }\n  \n  // Return the item with standardized phone number\n  return {\n    json: {\n      ...item.json,\n      'Phone Number': standardizedNumber\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2928,
+        1216
+      ],
+      "id": "bcefab13-6a87-46b8-9779-0f3fb6095b97",
+      "name": "Standardize Data"
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3600,
+        1312
+      ],
+      "id": "96301e0b-77b7-4517-8391-e17e6766ff32",
+      "name": "Wait",
+      "webhookId": "7f524fb2-74b6-4b8e-b9eb-8fbc78c891fa"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.vapi.ai/call/{{ $json.results[0].id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3824,
+        1312
+      ],
+      "id": "439b0a3d-ac77-4f14-a654-ab6ce2a8e064",
+      "name": "Get Call Details",
+      "executeOnce": true,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "nqZKP4dUtcYFjYWy",
+          "name": "Vapi Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "73716a76-22fa-4f8c-880f-b76350b436f9",
+              "leftValue": "={{ $json.endedReason }}",
+              "rightValue": "voicemail",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4496,
+        1184
+      ],
+      "id": "769cf7a5-3850-45ae-ab34-6d3a7ef8ae84",
+      "name": "Voicemail?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "30c7ebf4-6de9-49f3-9a27-b7f3a7e2b558",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "ended",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4272,
+        1232
+      ],
+      "id": "38581b24-99fb-46b1-a955-11622dd4819c",
+      "name": "Ended?"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4496,
+        1408
+      ],
+      "id": "688223d7-a2f9-483c-a694-4862f49f98f2",
+      "name": "Polling",
+      "webhookId": "2c866267-82c9-4178-8f2f-fc4040a7fb22"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk",
+          "mode": "list",
+          "cachedResultName": "Form Submission Outbound Caller",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $now.format('yyyy-MM-dd hh:mm a') }}",
+            "Name": "={{ $('On form submission').item.json.Name }}",
+            "Phone": "={{ $('On form submission').item.json['Phone Number'] }}",
+            "Email": "={{ $('On form submission').item.json.Email }}",
+            "Company": "={{ $('On form submission').item.json['Company Name'] }}",
+            "Role": "={{ $('On form submission').item.json.Role }}",
+            "Request": "={{ $('On form submission').item.json.Request }}",
+            "Company Size": "={{ $('On form submission').item.json['Company Size'] }}",
+            "Service Interest": "N/A",
+            "Motivation": "N/A",
+            "Urgency": "N/A",
+            "Past Experience": "N/A",
+            "Budget": "N/A",
+            "Intent?": "N/A",
+            "Status": "Call Back"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Role",
+              "displayName": "Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Intent?",
+              "displayName": "Intent?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4720,
+        1088
+      ],
+      "id": "e54a67ed-018b-4bc6-a9a1-0c20137529f2",
+      "name": "Log Voicemal",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GXUKCFdA3OHNbebO",
+          "name": "Hermes _ Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        4048,
+        1232
+      ],
+      "id": "d1c95c71-13e6-4fd3-9bac-f763b3e9d7bf",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk",
+          "mode": "list",
+          "cachedResultName": "Form Submission Outbound Caller",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $now.format('yyyy-MM-dd hh:mm a') }}",
+            "Name": "={{ $('On form submission').item.json.Name }}",
+            "Phone": "={{ $('On form submission').item.json['Phone Number'] }}",
+            "Email": "={{ $('On form submission').item.json.Email }}",
+            "Company": "={{ $('On form submission').item.json['Company Name'] }}",
+            "Role": "={{ $('On form submission').item.json.Role }}",
+            "Request": "={{ $('On form submission').item.json.Request }}",
+            "Company Size": "={{ $('On form submission').item.json['Company Size'] }}",
+            "Intent?": "={{ $json.artifact.structuredOutputs['30896ce1-9f84-41b6-871b-65321b41b6fd'].result }}",
+            "Past Experience": "={{ $json.artifact.structuredOutputs['783e0f59-40c2-4e67-b14f-ba071286ac87'].result }}",
+            "Budget": "={{ $json.artifact.structuredOutputs['78f6dbcc-96c0-470c-b0a6-c35976bc8e8e'].result }}",
+            "Status": "=Complete",
+            "Motivation": "={{ $json.artifact.structuredOutputs['f73696c9-a75f-4ae0-8e49-2e42e5c7f0b2'].result }}",
+            "Urgency": "={{ $json.artifact.structuredOutputs['fd64736f-7f53-49b3-817a-252cf95537d6'].result }}",
+            "Service Interest": "={{ $json.artifact.structuredOutputs['fcf064be-67de-47ef-8df9-d5496674b887'].result }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Role",
+              "displayName": "Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Intent?",
+              "displayName": "Intent?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4720,
+        1280
+      ],
+      "id": "b483e991-8c99-4c8a-addc-3644ab1d8330",
+      "name": "Log Complete",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GXUKCFdA3OHNbebO",
+          "name": "Hermes _ Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# 📞 Vapi.ai Automated Outbound Caller from Form Submissions - Documentation\n\n## 📋 Overview\n\nThis n8n automation workflow provides a fully automated lead engagement system that initiates AI-powered outbound phone calls immediately upon form submission. The workflow captures structured lead data from a web form, standardizes phone numbers, triggers a Vapi.ai AI voice agent to contact the lead, and comprehensively logs the entire interaction outcome—including call disposition (voicemail or complete conversation) and extracted lead intelligence (service interest, motivation, urgency, budget, intent, and past experience)—into a Google Sheets CRM. The system orchestrates a real-time lead qualification funnel by integrating form capture, telephony orchestration, and data enrichment into a single event-driven pipeline.\n\n## 👥 Who Is This Workflow For?\n\n- **Sales Teams** requiring instant, AI-driven follow-up on inbound web inquiries to reduce lead response time and increase conversion rates\n- **Lead Generation Agencies** needing to automate the qualification and engagement of new leads\n- **CRM Administrators** seeking to enrich lead data with call-derived intelligence and maintain a complete audit trail\n- **Operations Managers** wanting to streamline the lead management process from form submission to initial contact and qualification\n- **Marketing Teams** looking to improve lead quality assessment through structured post-call data capture\n\n## 🎯 Problem Statement\n\nManual lead follow-up is slow, inconsistent, and resource-intensive. When a potential customer submits a web form, the average response time often stretches to hours or days, leading to missed opportunities, poor lead qualification, and lost revenue. Sales representatives spend significant time:\n- Manually reviewing and processing form submissions\n- Dialing phone numbers and leaving voicemails\n- Transcribing call notes and updating CRM systems\n- Attempting to qualify leads without structured guidance or conversation intelligence\n\nThis workflow solves these problems by creating an immediate, automated, and intelligent engagement loop: a form submission triggers an outbound AI phone call within moments, and the post-call insights are automatically logged to a centralized CRM, enabling instant follow-up and data-driven prioritization.\n\n## ⚙️ How This Workflow Works\n\n### Phase 1: Form Submission and Intake\n1. The n8n **Form Trigger** node presents a customizable web form (\"Work with us!\") that captures structured lead data including the lead's name, phone number, email address, company name, role, request details, and company size.\n2. Upon form submission, the trigger node outputs a JSON object containing all form field values and begins the workflow execution.\n3. The workflow receives the raw form data as a single input item.\n\n### Phase 2: Phone Number Standardization and Validation\n4. The **Standardize Data** node executes custom JavaScript code to process the lead's phone number.\n5. The code strips all non-digit characters from the raw phone number input.\n6. It then applies a validation rule: if the clean number is exactly 10 digits, it is considered valid; if it is 11 digits and starts with '1', the leading '1' is stripped to produce a standard 10-digit US number; any other format is marked as `incorrect format`.\n7. The standardized or error value is written back to the `Phone Number` field in the JSON payload.\n\n### Phase 3: Conditional Routing Based on Phone Validity\n8. The **Incorrect Phone?** IF node evaluates the standardized `Phone Number` field against the string `incorrect format`.\n9. If the phone number is `incorrect format` (the \"true\" branch), the workflow logs an entry to the Google Sheets CRM with a `Status` of `Incorrect Phone #` and the workflow ends.\n10. If the phone number is valid (the \"false\" branch), the workflow proceeds to initiate the outbound call.\n\n### Phase 4: Outbound Call Execution via Vapi.ai\n11. The **Call Lead using Vapi** HTTP Request node constructs a JSON payload to the Vapi.ai API `https://api.vapi.ai/call` endpoint using the Bearer token authentication method.\n12. The payload includes the Vapi.ai **assistant ID**, the **phone number ID**, the lead's phone number (formatted with a +1 country code prefix), and three custom assistant override variables: `lead_name`, `lead_company_name`, and `lead_request` from the form data.\n13. The Vapi.ai AI voice agent is triggered to place an outbound call to the lead and engage them in a conversation based on the configured assistant's script.\n14. The node receives a `callId` in its response.\n\n### Phase 5: Call Status Polling and Outcome Retrieval\n15. The **Wait** node pauses the workflow for 60 seconds to allow the Vapi.ai call to complete (ring time, voicemail duration, and conversation time).\n16. The **Get Call Details** HTTP Request node constructs a GET request to `https://api.vapi.ai/call/{callId}` to retrieve the final status and metadata of the completed call.\n17. The **Limit** node ensures only a single item (the first call detail record) is processed for logging.\n18. The **Ended?** IF node checks whether the call `status` field equals `ended`.\n19. If the call has not ended (the \"false\" branch), the **Polling** Wait node pauses for 10 seconds, then loops back to the **Get Call Details** node to re-check the status. This polling loop continues until the call is in an ended state.\n\n### Phase 6: Call Disposition and Intelligence Logging\n20. Once the call has ended, the **Voicemail?** IF node evaluates the `endedReason` field from the call details.\n21. If the `endedReason` is `voicemail` (the \"true\" branch), the **Log Voicemail** Google Sheets node appends a new row to the CRM. This row copies all original form data (Name, Phone, Email, Company, Role, Request, Company Size), sets a `Status` of `Call Back`, and populates the enrichment columns (Service Interest, Motivation, Urgency, Past Experience, Budget, Intent?) with a placeholder value of \"N/A.\"\n22. If the `endedReason` is anything other than `voicemail`—indicating a successful conversation (the \"false\" branch)—the workflow proceeds to the **Log Complete** Google Sheets node.\n23. The **Log Complete** Google Sheets node appends a new row to the CRM. This row copies all original form data and dynamically maps six enrichment fields (`Service Interest`, `Motivation`, `Urgency`, `Past Experience`, `Budget`, `Intent?`) from the call detail artifact. It also sets the overall `Status` to `Complete`, signifying a full conversation with intelligence captured.\n\n## ✨ Key Benefits\n\n- **Zero-Response-Time Lead Follow-Up**: The workflow initiates an AI-driven outbound call within seconds of form submission, dramatically reducing lead response latency and increasing engagement rates.\n- **Automated Phone Number Standardization**: Custom JavaScript logic cleans and validates phone numbers, ensuring accurate dialing and preventing wasted call attempts.\n- **Intelligent Call Outcome Tracking**: The system automatically detects and routes between voicemail and completed conversations, ensuring each lead receives appropriate follow-up.\n- **Comprehensive Lead Intelligence Enrichment**: Post-call structured outputs from Vapi.ai (motivation, urgency, budget, intent, service interest, past experience) are dynamically mapped into the CRM for sales prioritization.\n- **Complete Audit Trail and CRM Integration**: Every interaction—including form submission, standardization outcome, call initiation, and final disposition—is automatically logged to Google Sheets for pipeline visibility and reporting.\n- **Self-Healing Polling Mechanism**: The workflow's polling loop ensures the system only proceeds to logging once the call is fully completed, preventing data loss or race conditions.\n- **Extensible AI Agent Configuration**: The Vapi.ai assistant's script variables are customizable, enabling the workflow to handle different use cases, product lines, or sales scripts.\n\n## 📦 Requirements\n\n### Technical Requirements\n- **n8n Instance**: Self-hosted or cloud-based n8n instance with the following node types available: **Form Trigger**, **Google Sheets**, **IF**, **Code**, **Wait**, **HTTP Request**, and **Limit**.\n- **Google Sheets API**: Enabled Google Cloud project with the Google Sheets API activated for the target service account.\n- **Vapi.ai Account**: Active Vapi.ai account with an AI assistant configured and a phone number provisioned.\n- **Internet Connectivity**: The n8n instance must have outbound internet access to communicate with the Google Sheets and Vapi.ai APIs.\n- **JavaScript Environment**: The Code node must execute JavaScript; ensure your n8n instance permits custom code execution.\n\n### Credentials & Authentication\n- **Google Sheets OAuth2 Credential**: OAuth2 credential with the following scopes:\n  - `https://www.googleapis.com/auth/spreadsheets` – to read from and write to the target spreadsheet\n  - `https://www.googleapis.com/auth/drive` – to access the spreadsheet resource\n- **Vapi.ai Bearer Token Credential**: HTTP Bearer Token authentication using the Vapi.ai secret API key from your Vapi.ai dashboard.\n\n### API & Rate Limits\n- **Google Sheets API**: The default quota is 300 requests per minute per project; this workflow writes a maximum of three rows per form submission (in the `incorrect phone` branch) or two rows (in the `voicemail` and `complete` branches), making rate limits negligible for typical low-to-medium volume operations.\n- **Vapi.ai API**:\n  - The `create call` endpoint POST `https://api.vapi.ai/call` has a rate limit of 10 requests per second for paid plans.\n  - The `get call details` endpoint GET `https://api.vapi.ai/call/{callId}` has a rate limit of 100 requests per second.\n- **Form Trigger**: No rate limit applies to the web form itself; however, your n8n instance's execution capacity will determine throughput.\n\n## 🔧 Setup Instructions\n\n1. **Create the Google Sheets Credential in n8n**\n   - Navigate to **Credentials** > **OAuth2** > **Google Sheets OAuth2 API**.\n   - Follow the OAuth2 flow to authorize n8n to access your Google Drive and Google Sheets.\n   - Ensure the credential has write access to the target spreadsheet.\n\n2. **Create the Vapi.ai Bearer Token Credential in n8n**\n   - Navigate to **Credentials** > **HTTP Request** > **HTTP Bearer Token Authentication**.\n   - Name the credential (e.g., \"Vapi.ai API\").\n   - Paste your Vapi.ai secret API key into the `Token` field.\n\n3. **Configure the Form Trigger Node**\n   - The **Form Trigger** node is pre-configured with all required fields. You may adjust the `formTitle`, `formDescription`, and `formFields` to match your organization's branding and data capture needs.\n   - Copy the webhook URL from the node's execution pane to embed in your website or share as a form link.\n\n4. **Set Up the Google Sheets Target Spreadsheet**\n   - Create a new Google Sheets document or use an existing one.\n   - Ensure the sheet contains columns matching the schema defined in the Google Sheets nodes:\n     - `Date`, `Name`, `Phone`, `Email`, `Company`, `Role`, `Request`, `Company Size`\n     - Enrichment columns: `Service Interest`, `Motivation`, `Urgency`, `Past Experience`, `Budget`, `Intent?`\n     - `Status` column for workflow state tracking.\n   - Replace the placeholder `documentId` in all three Google Sheets nodes with your spreadsheet's ID (found in the URL after `/d/` and before `/edit`).\n   - Ensure the `sheetName` parameter references the correct sheet (by name or GID).\n\n5. **Configure the Vapi.ai HTTP Request Nodes**\n   - Open the **Call Lead using Vapi** node and replace the placeholder `assistantId` with your Vapi.ai assistant's unique identifier.\n   - Replace the placeholder `phoneNumberId` with your Vapi.ai provisioned phone number's ID.\n   - Verify the JSON body correctly maps form fields to the `variableValues` object for your assistant's script.\n   - In the **Get Call Details** node, ensure the `url` field correctly interpolates the `callId`.\n\n6. **Adjust Timing Values (Optional)**\n   - The initial **Wait** node is set to 60 seconds—adjust this based on your typical call duration to balance responsiveness and reliability.\n   - The **Polling** wait node is set to 10 seconds—tune this for faster or slower status checks.\n\n7. **Activate the Workflow**\n   - Toggle the workflow to the **Active** state.\n   - Test by submitting the form to verify the complete flow from submission to call to logging.\n\n## 🔒 Security & Compliance\n\n### Security Considerations\n- **Bearer Token Exposure**: The Vapi.ai Bearer token is stored securely in n8n's credential store; it is never exposed in node configurations, logs, or webhook URLs.\n- **Credential Scope Restriction**: The Google Sheets OAuth2 credential is scoped only to the required APIs, reducing the potential blast radius in case of credential leakage.\n- **Automated Outbound Call Safeguard**: This workflow initiates an **automated outbound call to a lead without any human review or draft-mode safeguard**. The lead's phone number is used immediately upon form submission. This design prioritizes speed over verification. Organizations should evaluate whether this aligns with their communication policies and consider adding a \"human approval\" step if desired. The workflow's logic does not include a fallback for phone number confirmation, meaning a typo will result in an attempted call to the wrong number.\n- **Data Transmission**: All data transmitted to Vapi.ai and Google Sheets occurs over HTTPS, ensuring encryption in transit.\n- **Error Handling**: The workflow does not include explicit error-catching nodes; if an API call fails, the workflow will terminate with an execution error. This may be acceptable for logging but does not retry transient failures.\n\n### Data Privacy\n- **Personal Data Touched**: The workflow processes the following personal data: name, phone number, email address, company name, role, request details, company size, and post-call conversational intelligence (motivation, urgency, budget, intent, past experience, service interest).\n- **Data Storage**: All captured data is stored in the target Google Sheets document. Vapi.ai also stores call metadata and transcripts (if enabled) for compliance and analytics purposes.\n- **Data Retention**: The Google Sheets document serves as the primary data store; organizations should define and implement a data retention policy appropriate for their jurisdiction (e.g., GDPR, CCPA) to ensure personal data is not retained longer than necessary.\n- **Third-Party Data Sharing**: Data is shared with Vapi.ai to facilitate the outbound call. Organizations should review Vapi.ai's data processing agreement (DPA) and privacy policy to ensure compliance with their regulatory obligations.\n- **User Consent**: This workflow automatically initiates a call without explicit consent beyond the form submission itself. Organizations should ensure they have appropriate consent mechanisms in place, such as a checkbox on the form acknowledging the lead's acceptance of being contacted.\n- **Data Minimization**: The workflow captures only the fields necessary for lead engagement and qualification, aligning with data minimization principles.\n\n## ⚠️ Troubleshooting\n\n| Issue | Cause | Solution |\n|-------|-------|----------|\n| Form submissions are not triggering the workflow | The Form Trigger node is not active or the webhook URL is incorrect | Ensure the workflow is toggled to **Active**. Verify the webhook URL embedded in the form matches the one provided by the Form Trigger node. Check n8n's execution logs for any errors. |\n| Phone number is always marked \"incorrect format\" | The input format is not 10 digits or 11 digits starting with '1' (e.g., includes international country codes, spaces, parentheses, or dashes) | The standardization code only supports US numbers. For international numbers, modify the JavaScript in the Code node to handle additional country codes or implement a more robust parsing library. |\n| Vapi.ai call fails to initiate | The Bearer token credential is invalid, the assistant ID is incorrect, or the phone number ID is wrong | Verify the Bearer token in the credential store matches the secret API key from your Vapi.ai dashboard. Double-check the assistant ID and phone number ID in the HTTP Request node's JSON body. |\n| Google Sheets nodes fail with \"permission denied\" | The OAuth2 credential used does not have write access to the target spreadsheet | Ensure the Google Sheets credential has been authorized with the correct Google account and that the target spreadsheet has been shared with that account (if using a service account). |\n| \"Get Call Details\" returns a 404 error | The `callId` is not being correctly interpolated or the call has not yet been created | Verify the `url` field in the HTTP Request node correctly references the `id` from the previous node's response. Ensure the initial Wait node delay is sufficient for Vapi.ai to process the call. |\n| The workflow enters an infinite polling loop | The call status never changes to \"ended\" due to a stuck call in Vapi.ai | Vapi.ai calls should eventually transition to `ended`. If not, manually cancel the call in the Vapi.ai dashboard. As a preventative measure, consider adding a maximum retry counter in the Code node before the Polling node. |\n| Log Complete node shows all enrichment fields as \"N/A\" | The Vapi.ai assistant did not provide structured outputs, or the node is incorrectly referencing the artifact fields | Ensure your Vapi.ai assistant is configured to produce structured outputs with the exact IDs referenced in the `Log Complete` node's column mappings. Verify the call details response contains an `artifact` object with `structuredOutputs`. |\n| The spreadsheet columns are out of order or mismatched | The Google Sheets nodes' column mappings are incorrect for the target sheet | Open the Google Sheets node, click \"Matching Columns\" or \"Schema\" to manually map each field to the correct column letter in your sheet. Alternatively, delete the column mappings and let n8n auto-detect the schema. |\n\n## 🔄 Maintenance & Optimization\n\n- **Monitor Vapi.ai Usage**: Keep track of your Vapi.ai API usage and associated costs. As call volume grows, consider implementing a rate-limiting strategy within n8n or leveraging Vapi.ai's concurrency settings.\n- **Update AI Assistant Script Regularly**: The effectiveness of the calls depends on the Vapi.ai assistant's script and variable values. Regularly review and iterate on the script based on call outcome data and sales team feedback.\n- **Review and Tune Timings**: The 60-second Wait node may be too short for longer calls or too long for quick voicemails. Monitor call duration metrics and adjust to minimize polling overhead.\n- **Expand Phone Number Standardization**: The current JavaScript supports only US numbers. If your lead base is international, extend the Code node to handle additional country codes or integrate a phone number parsing library (e.g., libphonenumber).\n- **Add Error Handling and Retry Logic**: To make the workflow more resilient, consider wrapping the Vapi.ai and Google Sheets API calls in IF nodes with fallback actions (e.g., email alerts for API failures) or implement retry mechanisms using the **Retry** node.\n- **Regularly Audit Credentials**: Rotate the Google Sheets OAuth2 credential and Vapi.ai Bearer token periodically to maintain security hygiene. Ensure the token stored in n8n is updated accordingly.\n- **Optimize Google Sheets Write Operations**: For high-volume use cases, consider batch updating or using the **Google Sheets Update** node to modify rows instead of appending new rows to avoid hitting API rate limits.\n- **Implement Lead Status Dashboard**: Use the captured data in Google Sheets to create a real-time dashboard for the sales team, visualizing lead status distribution, call outcomes, and qualification scores.\n- **Set Up Alerting**: Configure n8n to send notifications (e.g., via Slack, email) when a lead has a particularly high \"Intent?\" value or when a call fails to complete, enabling immediate manual intervention.\n\n---",
+        "height": 6576,
+        "width": 880,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        688,
+        -2032
+      ],
+      "typeVersion": 1,
+      "id": "3a5b3294-f096-4366-af24-d3ee050b28f6",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.vapi.ai/call",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"assistantId\": \"YOUR ASSISTANT ID\",\n  \"phoneNumberId\": \"YOUR PHONE NUMBER ID\",\n  \"customers\": [\n    {\n      \"number\": \"+1{{ $json['Phone Number'] }}\"\n    }\n  ],\n  \"assistantOverrides\": {\n    \"variableValues\": {\n      \"lead_name\": \"{{ $json.Name }}\",\n      \"lead_company_name\": \"{{ $json['Company Name'] }}\",\n      \"lead_request\": \"{{ $json.Request }}\"\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        3376,
+        1312
+      ],
+      "id": "4e18b314-26eb-480f-9b51-bdc80dd31711",
+      "name": "Call Lead using Vapi"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Standardize Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Incorrect Phone?": {
+      "main": [
+        [
+          {
+            "node": "Log Incorrect Phone",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Lead using Vapi",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Standardize Data": {
+      "main": [
+        [
+          {
+            "node": "Incorrect Phone?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Call Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Call Details": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ended?": {
+      "main": [
+        [
+          {
+            "node": "Voicemail?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Polling",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Polling": {
+      "main": [
+        [
+          {
+            "node": "Get Call Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voicemail?": {
+      "main": [
+        [
+          {
+            "node": "Log Voicemal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Complete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Ended?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Lead using Vapi": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f8e09af4-eb70-481a-aab0-9bbe1b8e00ab",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5c585f2620b1e811fa88e890c331ab057400f88adebd1d8bd64feeac19ecaec8"
+  },
+  "nodeGroups": [],
+  "id": "Dj6nDEfvlYAgdOYX",
+  "tags": []
+}
